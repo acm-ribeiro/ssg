@@ -316,7 +316,7 @@ public class StateSpaceGraph {
         BufferedReader buff = new BufferedReader(new FileReader(filePath));
         String line = buff.readLine();
 
-        while (line != null) {
+        while (!endOfFile(line)) {
             if (isNodeDescription(line))
                 nodesById.put(Long.parseLong(line.trim().split(SPACE)[0]), nodesById.size());
             else if (isEdgeDescription(line))
@@ -325,6 +325,17 @@ public class StateSpaceGraph {
         }
 
         buff.close();
+    }
+
+    /**
+     * Checks whether we have reached the end of the relevant lines of the DOT file.
+     * Anything beyond this point is for SVG generation purposes.
+     *
+     * @param line line to examine.
+     * @return true when the graph description has ended; false otherwise.
+     */
+    private boolean endOfFile(String line) {
+        return line.contains("Next State Actions");
     }
 
     /**
@@ -339,7 +350,7 @@ public class StateSpaceGraph {
         String trimmedLine, line = buff.readLine();
         Edge edge;
 
-        while (line != null) {
+        while (!endOfFile(line)) {
             trimmedLine = line.trim();
             if (isEdgeDescription(trimmedLine)) {
                 String[] splitByEdge = trimmedLine.split(EDGE_CHAR);

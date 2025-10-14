@@ -1,0 +1,46 @@
+digraph DiskGraph {
+node [shape=box,style=rounded]
+edge [colorscheme="paired12"]
+nodesep=0.35;
+subgraph cluster_graph {
+color="white";
+8985947796070130633 [label="/\\ users = {}/\\ f = FALSE/\\ orders = <<>>/\\ pets = {}",style = filled]
+8985947796070130633 -> 6235706023157395494 [label="createUser(u1)",color="2",fontcolor="2"];
+6235706023157395494 [label="/\\ users = {u1}/\\ f = FALSE/\\ orders = <<>>/\\ pets = {}",tooltip="/\\ users = {u1}/\\ f = FALSE/\\ orders = <<>>/\\ pets = {}"];
+8985947796070130633 -> 3866499522901782657 [label="addPet(p1)",color="3",fontcolor="3"];
+3866499522901782657 [label="/\\ users = {}/\\ f = FALSE/\\ orders = <<>>/\\ pets = {p1}",tooltip="/\\ users = {}/\\ f = FALSE/\\ orders = <<>>/\\ pets = {p1}"];
+8985947796070130633 -> 6235706023157395494 [label="createUsersWithListInput({u1})",color="4",fontcolor="4"];
+6235706023157395494 -> 8985947796070130633 [label="deleteUser(u1)",color="5",fontcolor="5"];
+6235706023157395494 -> 6068175456440604309 [label="addPet(p1)",color="3",fontcolor="3"];
+6068175456440604309 [label="/\\ users = {u1}/\\ f = FALSE/\\ orders = <<>>/\\ pets = {p1}",tooltip="/\\ users = {u1}/\\ f = FALSE/\\ orders = <<>>/\\ pets = {p1}"];
+3866499522901782657 -> 6068175456440604309 [label="createUser(u1)",color="2",fontcolor="2"];
+3866499522901782657 -> 8985947796070130633 [label="deletePet(p1)",color="6",fontcolor="6"];
+3866499522901782657 -> -3936323301086328970 [label="placeOrder(o1)",color="7",fontcolor="7"];
+-3936323301086328970 [label="/\\ users = {}/\\ f = FALSE/\\ orders = (o1 :> p1)/\\ pets = {p1}",tooltip="/\\ users = {}/\\ f = FALSE/\\ orders = (o1 :> p1)/\\ pets = {p1}"];
+3866499522901782657 -> 6068175456440604309 [label="createUsersWithListInput({u1})",color="4",fontcolor="4"];
+6068175456440604309 -> 3866499522901782657 [label="deleteUser(u1)",color="5",fontcolor="5"];
+6068175456440604309 -> 6235706023157395494 [label="deletePet(p1)",color="6",fontcolor="6"];
+6068175456440604309 -> -7838713289496116373 [label="placeOrder(o1)",color="7",fontcolor="7"];
+-7838713289496116373 [label="/\\ users = {u1}/\\ f = TRUE/\\ orders = (o1 :> p1)/\\ pets = {p1}",tooltip="/\\ users = {u1}/\\ f = TRUE/\\ orders = (o1 :> p1)/\\ pets = {p1}"];
+-3936323301086328970 -> -7838713289496116373 [label="createUser(u1)",color="2",fontcolor="2"];
+-3936323301086328970 -> 8985947796070130633 [label="deletePet(p1)",color="6",fontcolor="6"];
+-3936323301086328970 -> 3866499522901782657 [label="deleteOrder(o1)",color="8",fontcolor="8"];
+-3936323301086328970 -> -7838713289496116373 [label="createUsersWithListInput({u1})",color="4",fontcolor="4"];
+-7838713289496116373 -> -3936323301086328970 [label="deleteUser(u1)",color="5",fontcolor="5"];
+-7838713289496116373 -> 6235706023157395494 [label="deletePet(p1)",color="6",fontcolor="6"];
+-7838713289496116373 -> 6068175456440604309 [label="deleteOrder(o1)",color="8",fontcolor="8"];
+{rank = same; 8985947796070130633;}
+{rank = same; 6235706023157395494;3866499522901782657;}
+{rank = same; -3936323301086328970;6068175456440604309;}
+{rank = same; -7838713289496116373;}
+}
+subgraph cluster_legend {graph[style=bold];label = "Next State Actions" style="solid"
+node [ labeljust="l",colorscheme="paired12",style=filled,shape=record ]
+placeOrder [label="placeOrder",fillcolor=7]
+deleteUser [label="deleteUser",fillcolor=5]
+createUser [label="createUser",fillcolor=2]
+deletePet [label="deletePet",fillcolor=6]
+addPet [label="addPet",fillcolor=3]
+createUsersWithListInput [label="createUsersWithListInput",fillcolor=4]
+deleteOrder [label="deleteOrder",fillcolor=8]
+}}

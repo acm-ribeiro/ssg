@@ -46,8 +46,8 @@
     <dependencies>
         <dependency>
             <groupId>com.github.acm-ribeiro</groupId>
-            <artifactId>simplified-tla-state-parser</artifactId>
-            <version>3cdac7d618</version>
+            <artifactId>tla-state-parser</artifactId>
+            <version>00432f8b92</version>
         </dependency>
     </dependencies>
 
