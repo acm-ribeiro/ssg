@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class StateSpaceGraph {
@@ -521,15 +522,15 @@ public class StateSpaceGraph {
     public void printStats(String fileName, List<Deque<Integer>> paths, int wanted,
                            float elapsedTime) {
         System.out.println(STATS);
-        System.out.printf("dot file name    :   %s\n", fileName);
-        System.out.printf("nodes           :   %d\n", getNumNodes());
-        System.out.printf("edges           :   %d\n", getNumEdges());
-        System.out.printf("wanted paths    :   %d\n", wanted);
-        System.out.printf("distinct paths  :   %d\n", paths.size());
-        System.out.printf("avg size        :   %d\n", Math.round(PathPruner.averagePathSize(paths)));
-        System.out.printf("max size        :   %d\n", PathPruner.largestPathSize(paths));
-        System.out.printf("min size        :   %d\n", PathPruner.shortestPathSize(paths));
-        System.out.printf("elapsed time    :   %.2f mins\n", elapsedTime);
+        System.out.printf("dot file name      :   %s\n", fileName);
+        System.out.printf("nodes             :   %d\n", getNumNodes());
+        System.out.printf("edges             :   %d\n", getNumEdges());
+        System.out.printf("wanted paths      :   %d\n", wanted);
+        System.out.printf("distinct paths    :   %d\n", paths.size());
+        System.out.printf("avg size          :   %d\n", Math.round(PathPruner.averagePathSize(paths)));
+        System.out.printf("max size          :   %d\n", PathPruner.largestPathSize(paths));
+        System.out.printf("min size          :   %d\n", PathPruner.shortestPathSize(paths));
+        System.out.printf("elapsed time      :   %.2f mins\n", elapsedTime);
         System.out.println(SPLIT);
     }
 
