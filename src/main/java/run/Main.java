@@ -82,7 +82,8 @@ public class Main {
             Usage: java -jar ssg.jar <dot_file> <num_paths> <json_output_file>
               <dot_file>          : input graph file (in DOT format)\s
               <num_paths>        : positive integer (maximum number of paths to generate)
-              <json_output_file>  : output .json file path"""
+              <json_output_file>  : output .json file path
+            """
         );
 
         System.exit(1);
