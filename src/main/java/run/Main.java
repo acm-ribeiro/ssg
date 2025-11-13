@@ -1,5 +1,6 @@
 package run;
 
+import graph.Edge;
 import graph.StateSpaceGraph;
 
 import java.io.BufferedWriter;
@@ -10,6 +11,7 @@ import java.util.Deque;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 public class Main {
 
@@ -31,8 +33,8 @@ public class Main {
             long finish = System.currentTimeMillis();
 
             // Writing to JSON file
-            JsonArray jsonPaths = pathsToJson(paths);
-            writeJson(outFile, jsonPaths);
+            JsonObject testSuite = pathsToJson(ssg, paths);
+            writeJson(outFile, testSuite);
 
             // Finished
             float elapsed = (finish - start) / 1000.0f / 60.0f;
@@ -41,31 +43,44 @@ public class Main {
     }
 
     /**
-     * Converts a list of paths into a JsonArray of paths.
+     * Converts a list of paths into a Test Suite.
      *
      * @param paths list of paths
-     * @return JsonArray of paths.
+     * @return JsonObject representing a test suite (list of sequences).
      */
-    public static JsonArray pathsToJson(List<Deque<Integer>> paths) {
-        JsonArray outer = new JsonArray();
+    public static JsonObject pathsToJson(StateSpaceGraph ssg, List<Deque<Integer>> paths) {
+        JsonObject testSuite = new JsonObject();
+        int sequenceId = 0;
 
         for (Deque<Integer> path : paths) {
-            JsonArray inner = new JsonArray();
-            for (int i = 0; i < path.size(); i++)
-                inner.add(i);
-            outer.add(inner);
+            JsonArray test = new JsonArray();
+            Edge[] edges = ssg.getPathEdges(path);
+            JsonObject edge = new JsonObject();
+
+            for (Edge e : edges) {
+                JsonArray params = new JsonArray();
+
+                for (String param : e.getParameters())
+                    params.add(param);
+
+                edge.addProperty("operationId", e.getTransition());
+                edge.add("parameters", params);
+                test.add(edge);
+            }
+
+            testSuite.add(String.valueOf(sequenceId++) , test);
         }
 
-        return outer;
+        return testSuite;
     }
 
     /**
      * Writes the paths JsonArray to a Json file.
      *
      * @param fileName  output file name
-     * @param paths    JsonArray of the generated paths.
+     * @param paths    JsonObject representing a test suite composed of the generated paths.
      */
-    public static void writeJson(String fileName, JsonArray paths) {
+    public static void writeJson(String fileName, JsonObject paths) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName + ".json"))) {
             new GsonBuilder().setPrettyPrinting().create().toJson(paths, writer);
         } catch (IOException e) {

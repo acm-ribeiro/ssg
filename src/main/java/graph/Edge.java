@@ -7,7 +7,7 @@ public class Edge {
 
     private int src, dst;             // edge's source and destination
     private String transition;        // edge's id and label (operation id)
-    private String[] parameters;  // transition operation parameters
+    private String[] parameters;      // transition operation parameters
 
     public Edge(int src, int dst, String transition, String[] parameters) {
         this.src = src;
