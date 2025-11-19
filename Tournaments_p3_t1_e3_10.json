@@ -1,0 +1,958 @@
+[
+  {
+    "sequenceId": 0,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 1,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 2,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p2",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 3,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 4,
+    "sequence": [
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 5,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 6,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p3",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 7,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p4",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 8,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e2",
+          "p1",
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 9,
+    "sequence": [
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p2",
+          "t1"
+        ]
+      }
+    ]
+  }
+]

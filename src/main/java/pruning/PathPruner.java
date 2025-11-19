@@ -10,7 +10,7 @@ public class PathPruner {
     private static Map<Integer, List<Deque<Integer>>> pathsBySize = new HashMap<>();
 
     /**
-     * Samples the given path collection according to their probability distribution.
+     * Samples the given path collection according to its probability distribution.
      *
      * @param paths   path collection.
      * @param samples number of paths to sample.
@@ -25,26 +25,22 @@ public class PathPruner {
         // Choosing a path based on its cumulative probability
         double rnd, prob;
         int pathSize, pathIndex;
-        Set<Map.Entry<Integer, Double>> entries;
-        Iterator<Map.Entry<Integer, Double>> it;
-        Map.Entry<Integer, Double> e;
 
         for (int i = 0; i < samples; i++) {
-            entries = cumulative.entrySet();
-            it = entries.iterator();
-            e = null;
-
             // We chose to sample from a paths with size pathSize based on the first value of the
             // cumulative probability that is greater or equal to rnd.
             rnd = Math.random();
-            pathSize = (int) averagePathSize(paths);
             prob = 0;
 
-            while (it.hasNext() && prob < rnd) {
-                e = it.next();
-                prob = e.getValue();
-            }
-            pathSize = e != null ? e.getKey() : pathSize;
+            // Sorting the keys in ascending order
+            List<Integer> sortedKeys = new ArrayList<>(cumulative.keySet());
+            Collections.sort(sortedKeys);
+
+            int j = 0;
+            while (j < sortedKeys.size() && prob < rnd)
+                prob = cumulative.get(sortedKeys.get(j++));
+
+            pathSize = j > 0? sortedKeys.get(j - 1) : (int) averagePathSize(paths);
 
             // Randomly sampling a path of previously chosen pathSize
             pathIndex = (int) (Math.random() * pathsBySize.get(pathSize).size());

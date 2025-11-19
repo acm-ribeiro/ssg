@@ -33,7 +33,7 @@ public class Main {
             long finish = System.currentTimeMillis();
 
             // Writing to JSON file
-            JsonObject testSuite = pathsToJson(ssg, paths);
+            JsonArray testSuite = pathsToJson(ssg, paths);
             writeJson(outFile, testSuite);
 
             // Finished
@@ -46,14 +46,14 @@ public class Main {
      * Converts a list of paths into a Test Suite.
      *
      * @param paths list of paths
-     * @return JsonObject representing a test suite (list of sequences).
+     * @return JsonArray representing a test suite (list of sequences).
      */
-    public static JsonObject pathsToJson(StateSpaceGraph ssg, List<Deque<Integer>> paths) {
-        JsonObject testSuite = new JsonObject();
+    public static JsonArray pathsToJson(StateSpaceGraph ssg, List<Deque<Integer>> paths) {
+        JsonArray testSuite = new JsonArray();
         int sequenceId = 0;
 
         for (Deque<Integer> path : paths) {
-            JsonArray test = new JsonArray();
+            JsonArray sequence = new JsonArray();
             Edge[] edges = ssg.getPathEdges(path);
             JsonObject edge = new JsonObject();
 
@@ -65,10 +65,14 @@ public class Main {
 
                 edge.addProperty("operationId", e.getTransition());
                 edge.add("parameters", params);
-                test.add(edge);
+                sequence.add(edge);
             }
 
-            testSuite.add(String.valueOf(sequenceId++) , test);
+            JsonObject test = new JsonObject();
+            test.addProperty("sequenceId", sequenceId++);
+            test.add("sequence", sequence);
+
+            testSuite.add(test);
         }
 
         return testSuite;
@@ -78,9 +82,9 @@ public class Main {
      * Writes the paths JsonArray to a Json file.
      *
      * @param fileName  output file name
-     * @param paths    JsonObject representing a test suite composed of the generated paths.
+     * @param paths    JsonArray representing a test suite composed of the generated paths.
      */
-    public static void writeJson(String fileName, JsonObject paths) {
+    public static void writeJson(String fileName, JsonArray paths) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName + ".json"))) {
             new GsonBuilder().setPrettyPrinting().create().toJson(paths, writer);
         } catch (IOException e) {

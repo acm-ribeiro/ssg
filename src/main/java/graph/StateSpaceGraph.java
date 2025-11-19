@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class StateSpaceGraph {
@@ -34,9 +33,9 @@ public class StateSpaceGraph {
     private static final String FINAL = "final";
 
     // Initial sizes
-    private static int INITIAL_NODES = 1000;
-    private static int INITIAL_EDGES = 30;
-    private static int INITIAL_PARAMS = 10;
+    private static final int INITIAL_NODES = 1000;
+    private static final int INITIAL_EDGES = 30;
+    private static final int INITIAL_PARAMS = 10;
 
     // Complete & incomplete paths
     private static final int PATH_CATEGORIES = 2;
@@ -50,7 +49,7 @@ public class StateSpaceGraph {
     private static final int PATH_LENGTH = 30;
 
     // Initial state index
-    private static int INITIAL = 0;
+    private static final int INITIAL = 0;
 
     private int finalState;            // Final state index
     private int numNodes;             // Number of nodes in the graph
@@ -226,6 +225,7 @@ public class StateSpaceGraph {
             }
         }
 
+        System.out.println("here");
         // Removing duplicates: the user may ask for more paths than the total number of distinct
         // paths in the graph.
         return PathPruner.sample(paths[COMPLETE], numPaths).stream()
@@ -552,6 +552,11 @@ public class StateSpaceGraph {
         System.out.println(toString(false)); // outgoing
     }
 
+    /**
+     * Prints the generated paths.
+     *
+     * @param paths generated paths.
+     */
     public void printPaths(List<Deque<Integer>> paths) {
         System.out.println(PATHS);
         System.out.println(pathsToString(paths));
