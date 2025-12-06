@@ -257,28 +257,45 @@ public class StateSpaceGraph {
         List<Deque<Integer>>[] from = pathsFrom();
         int last;
 
-        // Initialised found edges with all complete paths found so far
+        List<Deque<Integer>> selectedPaths = new ArrayList<>(paths[INCOMPLETE].size() + paths[COMPLETE].size());
+
+        // Initialised found edges with all complete paths that increase coverage
         for(Deque<Integer> completePath : paths[COMPLETE]) {
-            markPathEdgesFound(completePath);
-            markPathNodesFound(completePath);
+            if (selectedPaths.size() == numPaths)
+                break;
+            if (increasesTransitionCoverage(completePath)) {
+                selectedPaths.add(completePath);
+                markPathEdgesFound(completePath);
+                markPathNodesFound(completePath);
+            }
         }
 
         for (Deque<Integer> path : paths[INCOMPLETE]) {
+            if (selectedPaths.size() == numPaths)
+                break;
+
             assert !path.isEmpty();
             last = path.pollLast();
 
             for (Deque<Integer> fromLast : from[last]) {
+                if (selectedPaths.size() == numPaths)
+                    break;
+
                 Deque<Integer> completePath = new ArrayDeque<>(path);
                 completePath.addAll(fromLast);
-                if (increasesTransitionCoverage(completePath) && paths[COMPLETE].size() < numPaths) {
-                    paths[COMPLETE].add(completePath);
+
+                if (increasesTransitionCoverage(completePath)) {
+                    selectedPaths.add(completePath);
                     markPathEdgesFound(completePath);
                     markPathNodesFound(completePath);
                 }
             }
+
+            if (selectedPaths.size() == numPaths)
+                break;
         }
 
-        return paths[COMPLETE].stream().toList();
+        return selectedPaths.stream().toList();
     }
 
     /**
@@ -639,19 +656,22 @@ public class StateSpaceGraph {
      * @param wanted number of paths asked by the user.
      * @param elapsedTime total time elapsed since the start of the program, in minutes.
      */
-    public void printStats(String fileName, List<Deque<Integer>> paths, int wanted, float elapsedTime) {
+    public void printStats(String fileName, List<Deque<Integer>> paths, int wanted, String elapsedTime,
+        String fileSize) {
         System.out.println(STATS);
         System.out.printf("dot file name        :   %s\n", fileName);
         System.out.printf("nodes               :   %d\n", getNumNodes());
         System.out.printf("edges               :   %d\n", getNumEdges());
         System.out.printf("wanted paths        :   %d\n", wanted);
+        System.out.println(SPLIT);
         System.out.printf("distinct paths      :   %d\n", paths.size());
-        System.out.printf("avg size            :   %d\n", Math.round(PathPruner.averagePathSize(paths)));
-        System.out.printf("max size            :   %d\n", PathPruner.largestPathSize(paths));
         System.out.printf("min size            :   %d\n", PathPruner.shortestPathSize(paths));
+        System.out.printf("max size            :   %d\n", PathPruner.largestPathSize(paths));
+        System.out.printf("avg size            :   %d\n", Math.round(PathPruner.averagePathSize(paths)));
         System.out.printf("state coverage      :   %.3f\n", getStateCoverage());
         System.out.printf("transition coverage :   %.3f\n", getTransitionCoverage());
-        System.out.printf("elapsed time        :   %.2f mins\n", elapsedTime);
+        System.out.printf("file size            :   %s\n", fileSize);
+        System.out.printf("elapsed time        :   %s\n", elapsedTime);
         System.out.println(SPLIT);
     }
 

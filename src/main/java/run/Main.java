@@ -4,6 +4,7 @@ import graph.Edge;
 import graph.StateSpaceGraph;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -35,9 +36,19 @@ public class Main {
             JsonArray testSuite = pathsToJson(ssg, paths);
             writeJson(outFile, testSuite);
 
+            // Get file size
+            File jsonFile = new File(args[2] + ".json");  // args[2] is your json path
+            long fileSizeBytes = jsonFile.length();
+            String fileSize = formatFileSize(fileSizeBytes);
+
             // Finished
-            float elapsed = (finish - start) / 1000.0f / 60.0f;
-            ssg.printStats(args[0], paths, numPaths, elapsed);
+            long elapsedMillis = finish - start;
+            long elapsedSeconds = elapsedMillis / 1000;
+            long minutes = elapsedSeconds / 60;
+            long seconds = elapsedSeconds % 60;
+
+            String elapsed = String.format("%dmin%02dsec", minutes, seconds);
+            ssg.printStats(args[0], paths, numPaths, elapsed, fileSize);
         }
     }
 
@@ -90,6 +101,17 @@ public class Main {
         } catch (IOException e) {
             System.err.println("Could not write to file " + fileName);
         }
+    }
+
+    /**
+     * Formats file size in human-readable format (B, KB, MB, GB).
+     */
+    private static String formatFileSize(long bytes) {
+        if (bytes < 1024) return bytes + "B";
+        int exp = (int) (Math.log(bytes) / Math.log(1024));
+        char unit = "KMGT".charAt(exp - 1);
+
+        return String.format("%.1f%cB", bytes / Math.pow(1024, exp), unit);
     }
 
     /**
