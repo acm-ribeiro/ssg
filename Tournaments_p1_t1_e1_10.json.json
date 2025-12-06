@@ -1,0 +1,159 @@
+[
+  {
+    "sequenceId": 0,
+    "sequence": [
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 1,
+    "sequence": [
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "deleteTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 2,
+    "sequence": [
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "deleteTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 3,
+    "sequence": [
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "deletePlayer",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 4,
+    "sequence": [
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "deleteTournament",
+        "parameters": [
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 5,
+    "sequence": [
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deletePlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 6,
+    "sequence": [
+      {
+        "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postEnrollment",
+        "parameters": [
+          "e1",
+          "p1",
+          "t1"
+        ]
+      }
+    ]
+  }
+]

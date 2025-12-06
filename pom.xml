@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.github.acm-ribeiro</groupId>
             <artifactId>tla-state-parser</artifactId>
-            <version>78bec87a96</version>
+            <version>4ca86b51ee</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->

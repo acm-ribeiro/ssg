@@ -14,22 +14,21 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class Main {
-
     public static void main(String[] args) {
-        if(args.length != 3)
+        if (args.length != 3) {
             usage();
-        else {
+        } else {
             // Counting time
             long start = System.currentTimeMillis();
 
             // Reading input
             String dotFile = args[0];
-            int numPaths  = Integer.parseInt(args[1]);
+            int numPaths = Integer.parseInt(args[1]);
             String outFile = args[2];
 
             // Generating paths
             StateSpaceGraph ssg = new StateSpaceGraph(dotFile);
-            List<Deque<Integer>> paths = ssg.getPaths(numPaths);
+            List<Deque<Integer>> paths = ssg.getPathsOptimised(numPaths);
             long finish = System.currentTimeMillis();
 
             // Writing to JSON file
@@ -55,13 +54,14 @@ public class Main {
         for (Deque<Integer> path : paths) {
             JsonArray sequence = new JsonArray();
             Edge[] edges = ssg.getPathEdges(path);
-            JsonObject edge = new JsonObject();
 
             for (Edge e : edges) {
+                JsonObject edge = new JsonObject();
                 JsonArray params = new JsonArray();
 
-                for (String param : e.getParameters())
+                for (String param : e.getParameters()) {
                     params.add(param);
+                }
 
                 edge.addProperty("operationId", e.getTransition());
                 edge.add("parameters", params);
@@ -81,8 +81,8 @@ public class Main {
     /**
      * Writes the paths JsonArray to a Json file.
      *
-     * @param fileName  output file name
-     * @param paths    JsonArray representing a test suite composed of the generated paths.
+     * @param fileName output file name
+     * @param paths JsonArray representing a test suite composed of the generated paths.
      */
     public static void writeJson(String fileName, JsonArray paths) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName + ".json"))) {
@@ -102,10 +102,8 @@ public class Main {
               <dot_file>          : input graph file (in DOT format)\s
               <num_paths>        : positive integer (maximum number of paths to generate)
               <json_output_file>  : output .json file path
-            """
-        );
+            """);
 
         System.exit(1);
     }
-
 }

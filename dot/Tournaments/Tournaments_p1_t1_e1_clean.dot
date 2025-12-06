@@ -1,0 +1,35 @@
+digraph DiskGraph {
+node [shape=box,style=rounded]
+edge [colorscheme="paired12"]
+nodesep=0.35;
+subgraph cluster_graph {
+color="white";
+6181061885245297625 [label="/\\ f = FALSE/\\ tournaments = <<>>/\\ players = <<>>/\\ enrollments = <<>>",style = filled]
+6181061885245297625 -> -5393056493432186557 [label="postTournament(t1)",color="2",fontcolor="2"];
+-5393056493432186557 [label="/\\ f = FALSE/\\ tournaments = (t1 :> [ps |-> {}, c |-> 1])/\\ players = <<>>/\\ enrollments = <<>>",tooltip="/\\ f = FALSE/\\ tournaments = (t1 :> [ps |-> {}, c |-> 1])/\\ players = <<>>/\\ enrollments = <<>>"];
+6181061885245297625 -> -840529180994620235 [label="postPlayer(p1)",color="3",fontcolor="3"];
+-840529180994620235 [label="/\\ f = FALSE/\\ tournaments = <<>>/\\ players = (p1 :> [ts |-> {}])/\\ enrollments = <<>>",tooltip="/\\ f = FALSE/\\ tournaments = <<>>/\\ players = (p1 :> [ts |-> {}])/\\ enrollments = <<>>"];
+-5393056493432186557 -> 6181061885245297625 [label="deleteTournament(t1)",color="4",fontcolor="4"];
+-5393056493432186557 -> -8625381234270038825 [label="postPlayer(p1)",color="3",fontcolor="3"];
+-8625381234270038825 [label="/\\ f = FALSE/\\ tournaments = (t1 :> [ps |-> {}, c |-> 1])/\\ players = (p1 :> [ts |-> {}])/\\ enrollments = <<>>",tooltip="/\\ f = FALSE/\\ tournaments = (t1 :> [ps |-> {}, c |-> 1])/\\ players = (p1 :> [ts |-> {}])/\\ enrollments = <<>>"];
+-840529180994620235 -> -8625381234270038825 [label="postTournament(t1)",color="2",fontcolor="2"];
+-840529180994620235 -> 6181061885245297625 [label="deletePlayer(p1)",color="5",fontcolor="5"];
+-8625381234270038825 -> -840529180994620235 [label="deleteTournament(t1)",color="4",fontcolor="4"];
+-8625381234270038825 -> -5393056493432186557 [label="deletePlayer(p1)",color="5",fontcolor="5"];
+-8625381234270038825 -> -1254527245304768358 [label="postEnrollment(e1,p1,t1)",color="6",fontcolor="6"];
+-1254527245304768358 [label="/\\ f = TRUE/\\ tournaments = (t1 :> [ps |-> {p1}, c |-> 1])/\\ players = (p1 :> [ts |-> {t1}])/\\ enrollments = (e1 :> [pid |-> p1, tid |-> t1])",tooltip="/\\ f = TRUE/\\ tournaments = (t1 :> [ps |-> {p1}, c |-> 1])/\\ players = (p1 :> [ts |-> {t1}])/\\ enrollments = (e1 :> [pid |-> p1, tid |-> t1])"];
+-1254527245304768358 -> -8625381234270038825 [label="deleteEnrollment(e1)",color="7",fontcolor="7"];
+{rank = same; 6181061885245297625;}
+{rank = same; -5393056493432186557;-840529180994620235;}
+{rank = same; -8625381234270038825;}
+{rank = same; -1254527245304768358;}
+}
+subgraph cluster_legend {graph[style=bold];label = "Next State Actions" style="solid"
+node [ labeljust="l",colorscheme="paired12",style=filled,shape=record ]
+postTournament [label="postTournament",fillcolor=2]
+deletePlayer [label="deletePlayer",fillcolor=5]
+postEnrollment [label="postEnrollment",fillcolor=6]
+postPlayer [label="postPlayer",fillcolor=3]
+deleteEnrollment [label="deleteEnrollment",fillcolor=7]
+deleteTournament [label="deleteTournament",fillcolor=4]
+}}

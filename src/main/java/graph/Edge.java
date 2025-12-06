@@ -1,19 +1,20 @@
 package graph;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class Edge {
 
     private int src, dst;             // edge's source and destination
     private String transition;        // edge's id and label (operation id)
     private String[] parameters;      // transition operation parameters
+    private boolean found;            // indicates whether this edge has been found
 
     public Edge(int src, int dst, String transition, String[] parameters) {
         this.src = src;
         this.dst = dst;
         this.transition = transition;
         this.parameters = parameters;
+        found = false;
     }
 
     /**
@@ -51,6 +52,21 @@ public class Edge {
      */
     public String[] getParameters() {
         return parameters;
+    }
+
+    /**
+     * Marks this edge as found.
+     */
+    public void markFound() {
+        found = true;
+    }
+
+    /**
+     * Checks whether the edge has been found.
+     * @return found
+     */
+    public boolean isFound() {
+        return found;
     }
 
     /**
