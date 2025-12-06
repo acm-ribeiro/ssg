@@ -78,6 +78,8 @@ public class StateSpaceGraph {
 
     private Map<String, Edge> edgesById;
 
+    Map<String, Edge> foundEdges;
+
     public StateSpaceGraph(String filePath) {
         nodesById = new HashMap<>(INITIAL_NODES);
         try {
@@ -256,9 +258,10 @@ public class StateSpaceGraph {
         int last;
 
         // Initialised found edges with all complete paths found so far
-        Map<String, Edge> foundEdges = new HashMap();
-        for(Deque<Integer> path : paths[COMPLETE])
-            markPathEdgesFound(foundEdges, path);
+        for(Deque<Integer> completePath : paths[COMPLETE]) {
+            markPathEdgesFound(completePath);
+            markPathNodesFound(completePath);
+        }
 
         for (Deque<Integer> path : paths[INCOMPLETE]) {
             assert !path.isEmpty();
@@ -267,9 +270,10 @@ public class StateSpaceGraph {
             for (Deque<Integer> fromLast : from[last]) {
                 Deque<Integer> completePath = new ArrayDeque<>(path);
                 completePath.addAll(fromLast);
-                if (increasesTransitionCoverage(foundEdges, completePath) && paths[COMPLETE].size() < numPaths) {
+                if (increasesTransitionCoverage(completePath) && paths[COMPLETE].size() < numPaths) {
                     paths[COMPLETE].add(completePath);
-                    markPathEdgesFound(foundEdges, completePath);
+                    markPathEdgesFound(completePath);
+                    markPathNodesFound(completePath);
                 }
             }
         }
@@ -280,10 +284,9 @@ public class StateSpaceGraph {
     /**
      * Marks the given paths edges as found, by adding them to the given foundEdges map.
      *
-     * @param foundEdges
      * @param path
      */
-    private void markPathEdgesFound(Map<String, Edge> foundEdges, Deque<Integer> path) {
+    private void markPathEdgesFound(Deque<Integer> path) {
         Edge[] edges = getPathEdges(path);
 
         for (Edge e : edges)
@@ -291,13 +294,22 @@ public class StateSpaceGraph {
     }
 
     /**
+     * Marks the given paths nodes as found.
+     *
+     * @param path
+     */
+    private void markPathNodesFound(Deque<Integer> path) {
+        for(Integer stateIdx : path)
+            states[stateIdx].markFound();
+    }
+
+    /**
      * Checks whether a path increases the transition coverage.
      *
-     * @param foundEdges the edges found so far.
      * @param path the path to check.
      * @return true if increases transition coverage; false otherwise.
      */
-    private boolean increasesTransitionCoverage(Map<String, Edge> foundEdges, Deque<Integer> path){
+    private boolean increasesTransitionCoverage(Deque<Integer> path){
         Edge[] edges = getPathEdges(path);
 
         for (Edge e : edges)
@@ -313,13 +325,7 @@ public class StateSpaceGraph {
      * @return transition coverage.
      */
     public float getTransitionCoverage() {
-        int found = 0;
-
-        for (Edge e : edgesById.values()) {
-            found += e.isFound() ? 1 : 0;
-        }
-
-        return (float) found / (float) numEdges;
+        return (float) foundEdges.size() / (float) numEdges;
     }
 
     /**
@@ -330,11 +336,10 @@ public class StateSpaceGraph {
     public float getStateCoverage() {
         int found = 0;
 
-        for (State s : states) {
-            found += s.isFound() ? 1 : 0;
-        }
+        for (int i = 0; i < numNodes; i++)
+                found += i != finalState && states[i].isFound() ? 1 : 0;
 
-        return (float) found / (float) numNodes;
+        return (float) found / (float) (numNodes-1); // Removing the super final state
     }
 
     /**
@@ -390,6 +395,7 @@ public class StateSpaceGraph {
      */
     @SuppressWarnings("unchecked")
     private void initialiseStructures() {
+        foundEdges = new HashMap();
         numNodes = nodesById.size() + 1;
 
         outgoing = new List[numNodes];
