@@ -251,7 +251,7 @@ public class StateSpaceGraph {
      * @param numPaths
      * @return
      */
-    public List<Deque<Integer>> getPathsOptimised(int numPaths) {
+    public List<Deque<Integer>> selectPaths(int numPaths) {
         List<Deque<Integer>>[] paths = pathsTo();
         List<Deque<Integer>>[] from = pathsFrom();
         int last;
@@ -722,7 +722,8 @@ public class StateSpaceGraph {
      * @param wanted number of paths asked by the user.
      * @param elapsedTime total time elapsed since the start of the program, in minutes.
      */
-    public void printStats(String fileName, List<Deque<Integer>> paths, int wanted, String elapsedTime,
+    public void printStats(String fileName, List<List<Edge>> paths, int wanted,
+        String elapsedTime,
         String fileSize) {
         System.out.println(STATS);
         System.out.printf("dot file name        :   %s\n", fileName);
@@ -731,14 +732,60 @@ public class StateSpaceGraph {
         System.out.printf("wanted paths        :   %d\n", wanted);
         System.out.println(SPLIT);
         System.out.printf("distinct paths      :   %d\n", paths.size());
-        System.out.printf("min size            :   %d\n", PathPruner.shortestPathSize(paths));
-        System.out.printf("max size            :   %d\n", PathPruner.largestPathSize(paths));
-        System.out.printf("avg size            :   %d\n", Math.round(PathPruner.averagePathSize(paths)));
+        System.out.printf("min size            :   %d\n", shortestPathSize(paths));
+        System.out.printf("max size            :   %d\n", largestPathSize(paths));
+        System.out.printf("avg size            :   %d\n", Math.round(averagePathSize(paths)));
         System.out.printf("state coverage      :   %.3f\n", getStateCoverage());
         System.out.printf("transition coverage :   %.3f\n", getTransitionCoverage());
         System.out.printf("file size            :   %s\n", fileSize);
         System.out.printf("elapsed time        :   %s\n", elapsedTime);
         System.out.println(SPLIT);
+    }
+
+    /**
+     * Finds the average path size in the given collection.
+     *
+     * @param paths
+     * @return avg path size.
+     */
+    public static double averagePathSize(List<List<Edge>> paths) {
+        long sum = 0L;
+
+        for (List<Edge> path : paths)
+            sum += path.size();
+
+        return (double) sum / paths.size();
+    }
+
+    /**
+     * Finds the largest path size in the given collection.
+     *
+     * @param paths
+     * @return max path size.
+     */
+    public static int largestPathSize(List<List<Edge>> paths) {
+        int max = 0;
+
+        for (List<Edge> path : paths)
+            if (path.size() > max)
+                max = path.size();
+
+        return max;
+    }
+
+    /**
+     * Finds the shortest path size in the given collection.
+     *
+     * @param paths
+     * @return min path size.
+     */
+    public static int shortestPathSize(List<List<Edge>> paths) {
+        int min = (int) averagePathSize(paths);
+
+        for (List<Edge> path : paths)
+            if (path.size() < min) min = path.size();
+
+        return min;
     }
 
     /**

@@ -30,40 +30,27 @@ public class Main {
 
             // Generating paths
             StateSpaceGraph ssg = new StateSpaceGraph(dotFile);
-            List<Deque<Integer>> paths = ssg.getPathsOptimised(numPaths);
-
+            List<Deque<Integer>> paths = ssg.selectPaths(numPaths);
             List<List<Edge>> withPuts = ssg.addUpdates(paths);
-            StringBuilder sb = new StringBuilder();
-            for (List<Edge> path : withPuts) {
-                sb.append("{");
-                for (Edge edge : path){
-                    sb.append(edge.getTransition());
-                    sb.append(Arrays.toString(edge.getParameters()));
-                    sb.append(", ");
-                }
-                sb = new StringBuilder(sb.substring(0, sb.length() - 2));
-                sb.append("}\n");
-            }
-            System.out.println(sb);
             long finish = System.currentTimeMillis();
 
-//            // Writing to JSON file
-//            JsonArray testSuite = pathsToJson(ssg, paths);
-//            writeJson(outFile, testSuite);
-//
-//            // Get file size
-//            File jsonFile = new File(args[2] + ".json");  // args[2] is your json path
-//            long fileSizeBytes = jsonFile.length();
-//            String fileSize = formatFileSize(fileSizeBytes);
-//
-//            // Finished
-//            long elapsedMillis = finish - start;
-//            long elapsedSeconds = elapsedMillis / 1000;
-//            long minutes = elapsedSeconds / 60;
-//            long seconds = elapsedSeconds % 60;
-//
-//            String elapsed = String.format("%dmin%02dsec", minutes, seconds);
-//            ssg.printStats(args[0], paths, numPaths, elapsed, fileSize);
+            // Writing to JSON file
+            JsonArray testSuite = pathsToJson(ssg, withPuts);
+            writeJson(outFile, testSuite);
+
+            // Get file size
+            File jsonFile = new File(args[2] + ".json");  // args[2] is your json path
+            long fileSizeBytes = jsonFile.length();
+            String fileSize = formatFileSize(fileSizeBytes);
+
+            // Finished
+            long elapsedMillis = finish - start;
+            long elapsedSeconds = elapsedMillis / 1000;
+            long minutes = elapsedSeconds / 60;
+            long seconds = elapsedSeconds % 60;
+
+            String elapsed = String.format("%dmin%02dsec", minutes, seconds);
+            ssg.printStats(args[0], withPuts, numPaths, elapsed, fileSize);
         }
     }
 
@@ -73,21 +60,19 @@ public class Main {
      * @param paths list of paths
      * @return JsonArray representing a test suite (list of sequences).
      */
-    public static JsonArray pathsToJson(StateSpaceGraph ssg, List<Deque<Integer>> paths) {
+    public static JsonArray pathsToJson(StateSpaceGraph ssg, List<List<Edge>> paths) {
         JsonArray testSuite = new JsonArray();
         int sequenceId = 0;
 
-        for (Deque<Integer> path : paths) {
+        for (List<Edge> edges : paths) {
             JsonArray sequence = new JsonArray();
-            Edge[] edges = ssg.getPathEdges(path);
 
             for (Edge e : edges) {
                 JsonObject edge = new JsonObject();
                 JsonArray params = new JsonArray();
 
-                for (String param : e.getParameters()) {
+                for (String param : e.getParameters())
                     params.add(param);
-                }
 
                 edge.addProperty("operationId", e.getTransition());
                 edge.add("parameters", params);

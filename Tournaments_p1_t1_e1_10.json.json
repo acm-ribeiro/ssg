@@ -7,6 +7,24 @@
         "parameters": [
           "t1"
         ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
       }
     ]
   },
@@ -27,6 +45,24 @@
       },
       {
         "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
         "parameters": [
           "t1"
         ]
@@ -64,6 +100,24 @@
         "parameters": [
           "p1"
         ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
       }
     ]
   },
@@ -77,7 +131,19 @@
         ]
       },
       {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
         "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
         "parameters": [
           "t1"
         ]
@@ -86,6 +152,12 @@
         "operationId": "deletePlayer",
         "parameters": [
           "p1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
         ]
       }
     ]
@@ -100,7 +172,25 @@
         ]
       },
       {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
         "operationId": "postTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
         "parameters": [
           "t1"
         ]
@@ -118,6 +208,12 @@
     "sequence": [
       {
         "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
         "parameters": [
           "p1"
         ]
@@ -146,6 +242,24 @@
         ]
       },
       {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
         "operationId": "deletePlayer",
         "parameters": [
           "p1"
@@ -153,6 +267,18 @@
       },
       {
         "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
         "parameters": [
           "p1"
         ]
@@ -179,6 +305,12 @@
         "parameters": [
           "t1"
         ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
       }
     ]
   },
@@ -192,7 +324,37 @@
         ]
       },
       {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
         "operationId": "postPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putTournament",
+        "parameters": [
+          "t1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
         "parameters": [
           "p1"
         ]
@@ -226,6 +388,36 @@
           "e1",
           "p1",
           "t1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putPlayer",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putEnrollment",
+        "parameters": [
+          "e1"
+        ]
+      },
+      {
+        "operationId": "putEnrollment",
+        "parameters": [
+          "e1"
+        ]
+      },
+      {
+        "operationId": "putEnrollment",
+        "parameters": [
+          "e1"
         ]
       }
     ]

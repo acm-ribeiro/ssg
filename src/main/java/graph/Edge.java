@@ -52,18 +52,10 @@ public class Edge {
         return parameters;
     }
 
-    /** Checks whether the transition operation has parameters.
-     *
-     * @return true if it has parameters; false otherwise.
-     */
-    public boolean hasParameters() {
-        return parameters.length > 0;
-    }
-
     /**
      * Returns the first parameter of the transition operation.
      *
-     * @pre   hasParameters()
+     * @pre   parameters.length > 0;
      * @return
      */
     public String getFirstParameter() {
