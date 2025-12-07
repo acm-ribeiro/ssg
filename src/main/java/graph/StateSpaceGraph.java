@@ -248,7 +248,6 @@ public class StateSpaceGraph {
     }
 
     /**
-     *
      * @param numPaths
      * @return
      */
@@ -260,9 +259,10 @@ public class StateSpaceGraph {
         List<Deque<Integer>> selectedPaths = new ArrayList<>(paths[INCOMPLETE].size() + paths[COMPLETE].size());
 
         // Initialised found edges with all complete paths that increase coverage
-        for(Deque<Integer> completePath : paths[COMPLETE]) {
-            if (selectedPaths.size() == numPaths)
+        for (Deque<Integer> completePath : paths[COMPLETE]) {
+            if (selectedPaths.size() == numPaths) {
                 break;
+            }
             if (increasesTransitionCoverage(completePath)) {
                 selectedPaths.add(completePath);
                 markPathEdgesFound(completePath);
@@ -271,15 +271,17 @@ public class StateSpaceGraph {
         }
 
         for (Deque<Integer> path : paths[INCOMPLETE]) {
-            if (selectedPaths.size() == numPaths)
+            if (selectedPaths.size() == numPaths) {
                 break;
+            }
 
             assert !path.isEmpty();
             last = path.pollLast();
 
             for (Deque<Integer> fromLast : from[last]) {
-                if (selectedPaths.size() == numPaths)
+                if (selectedPaths.size() == numPaths) {
                     break;
+                }
 
                 Deque<Integer> completePath = new ArrayDeque<>(path);
                 completePath.addAll(fromLast);
@@ -291,11 +293,70 @@ public class StateSpaceGraph {
                 }
             }
 
-            if (selectedPaths.size() == numPaths)
+            if (selectedPaths.size() == numPaths) {
                 break;
+            }
         }
 
         return selectedPaths.stream().toList();
+    }
+
+    /**
+     * Adds put operations in the paths.
+     *
+     * @param paths resulting from the graph traversal.
+     * @return paths with puts.
+     */
+    public List<List<Edge>> addUpdates(List<Deque<Integer>> paths) {
+        List<List<Edge>> withUpdates = new ArrayList<>(paths.size());
+        Random rnd = new Random();
+
+        for (Deque<Integer> path : paths) {
+            Edge[] edges = getPathEdges(path);
+            List<Edge> newPath = new ArrayList<>(Arrays.asList(edges));
+            int offset = 0; // Tracks how many puts we've inserted
+
+            // Find first post and, optionally, a matching delete
+            for (int i = 0; i < edges.length; i++) {
+                Edge e = edges[i];
+
+                if (e.isPost()) {
+                    int numPuts = rnd.nextInt(4); // I want to add between [0, 3] consecutive puts
+                    if (numPuts == 0)
+                        continue; // Add the path as is, no puts added
+
+                    String tlaID = e.getFirstParameter();
+                    String putID = "put" + e.getTransition().replace("post", "");
+
+                    // Look for the delete for the same resource
+                    int deleteIdx = -1;
+                    for (int j = i + 1; j < edges.length; j++)
+                        if (edges[j].isDelete() && edges[j].getFirstParameter().equals(tlaID)) {
+                            deleteIdx = j;
+                            break;
+                        }
+
+                    // Inserting puts (1, 2 or 3)
+                    for (int p = 0; p < numPuts; p++) {
+                        int putIdx;
+                        if (deleteIdx != -1) // There is a matching delete
+                            if (i + 1 == deleteIdx) // Consecutive post-delete
+                                putIdx = i + 1 + offset;
+                            else
+                                putIdx = rnd.nextInt(i + 1, deleteIdx) + offset;
+                        else // No matching delete, insert anywhere after the post
+                            putIdx = rnd.nextInt(i + 1, edges.length + 1) + offset;
+
+                        String[] params = new String[]{tlaID};
+                        newPath.add(putIdx, new Edge(-1, -1, putID, params));
+                        offset++;
+                    }
+                }
+            }
+            withUpdates.add(newPath);
+        }
+
+        return withUpdates;
     }
 
     /**
@@ -306,8 +367,9 @@ public class StateSpaceGraph {
     private void markPathEdgesFound(Deque<Integer> path) {
         Edge[] edges = getPathEdges(path);
 
-        for (Edge e : edges)
+        for (Edge e : edges) {
             foundEdges.put(getEdgeId(e), e);
+        }
     }
 
     /**
@@ -316,8 +378,9 @@ public class StateSpaceGraph {
      * @param path
      */
     private void markPathNodesFound(Deque<Integer> path) {
-        for(Integer stateIdx : path)
+        for (Integer stateIdx : path) {
             states[stateIdx].markFound();
+        }
     }
 
     /**
@@ -326,12 +389,14 @@ public class StateSpaceGraph {
      * @param path the path to check.
      * @return true if increases transition coverage; false otherwise.
      */
-    private boolean increasesTransitionCoverage(Deque<Integer> path){
+    private boolean increasesTransitionCoverage(Deque<Integer> path) {
         Edge[] edges = getPathEdges(path);
 
-        for (Edge e : edges)
-            if (!foundEdges.containsKey(getEdgeId(e)))
+        for (Edge e : edges) {
+            if (!foundEdges.containsKey(getEdgeId(e))) {
                 return true;
+            }
+        }
 
         return false;
     }
@@ -353,10 +418,11 @@ public class StateSpaceGraph {
     public float getStateCoverage() {
         int found = 0;
 
-        for (int i = 0; i < numNodes; i++)
-                found += i != finalState && states[i].isFound() ? 1 : 0;
+        for (int i = 0; i < numNodes; i++) {
+            found += i != finalState && states[i].isFound() ? 1 : 0;
+        }
 
-        return (float) found / (float) (numNodes-1); // Removing the super final state
+        return (float) found / (float) (numNodes - 1); // Removing the super final state
     }
 
     /**

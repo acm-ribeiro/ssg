@@ -7,14 +7,12 @@ public class Edge {
     private int src, dst;             // edge's source and destination
     private String transition;        // edge's id and label (operation id)
     private String[] parameters;      // transition operation parameters
-    private boolean found;            // indicates whether this edge has been found
 
     public Edge(int src, int dst, String transition, String[] parameters) {
         this.src = src;
         this.dst = dst;
         this.transition = transition;
         this.parameters = parameters;
-        found = false;
     }
 
     /**
@@ -54,19 +52,40 @@ public class Edge {
         return parameters;
     }
 
-    /**
-     * Marks this edge as found.
+    /** Checks whether the transition operation has parameters.
+     *
+     * @return true if it has parameters; false otherwise.
      */
-    public void markFound() {
-        found = true;
+    public boolean hasParameters() {
+        return parameters.length > 0;
     }
 
     /**
-     * Checks whether the edge has been found.
-     * @return found
+     * Returns the first parameter of the transition operation.
+     *
+     * @pre   hasParameters()
+     * @return
      */
-    public boolean isFound() {
-        return found;
+    public String getFirstParameter() {
+        return parameters[0];
+    }
+
+    /**
+     * Checks whether the transition is a post operation.
+     *
+     * @return true if it is a post operation; false otherwise.
+     */
+    public boolean isPost() {
+        return transition.toLowerCase().contains("post");
+    }
+
+    /**
+     * Checks whether the transition is a delete operation.
+     *
+     * @return true if it is a delete operation; false otherwise.
+     */
+    public boolean isDelete() {
+        return transition.toLowerCase().contains("delete");
     }
 
     /**

@@ -7,6 +7,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Deque;
 
@@ -30,25 +31,39 @@ public class Main {
             // Generating paths
             StateSpaceGraph ssg = new StateSpaceGraph(dotFile);
             List<Deque<Integer>> paths = ssg.getPathsOptimised(numPaths);
+
+            List<List<Edge>> withPuts = ssg.addUpdates(paths);
+            StringBuilder sb = new StringBuilder();
+            for (List<Edge> path : withPuts) {
+                sb.append("{");
+                for (Edge edge : path){
+                    sb.append(edge.getTransition());
+                    sb.append(Arrays.toString(edge.getParameters()));
+                    sb.append(", ");
+                }
+                sb = new StringBuilder(sb.substring(0, sb.length() - 2));
+                sb.append("}\n");
+            }
+            System.out.println(sb);
             long finish = System.currentTimeMillis();
 
-            // Writing to JSON file
-            JsonArray testSuite = pathsToJson(ssg, paths);
-            writeJson(outFile, testSuite);
-
-            // Get file size
-            File jsonFile = new File(args[2] + ".json");  // args[2] is your json path
-            long fileSizeBytes = jsonFile.length();
-            String fileSize = formatFileSize(fileSizeBytes);
-
-            // Finished
-            long elapsedMillis = finish - start;
-            long elapsedSeconds = elapsedMillis / 1000;
-            long minutes = elapsedSeconds / 60;
-            long seconds = elapsedSeconds % 60;
-
-            String elapsed = String.format("%dmin%02dsec", minutes, seconds);
-            ssg.printStats(args[0], paths, numPaths, elapsed, fileSize);
+//            // Writing to JSON file
+//            JsonArray testSuite = pathsToJson(ssg, paths);
+//            writeJson(outFile, testSuite);
+//
+//            // Get file size
+//            File jsonFile = new File(args[2] + ".json");  // args[2] is your json path
+//            long fileSizeBytes = jsonFile.length();
+//            String fileSize = formatFileSize(fileSizeBytes);
+//
+//            // Finished
+//            long elapsedMillis = finish - start;
+//            long elapsedSeconds = elapsedMillis / 1000;
+//            long minutes = elapsedSeconds / 60;
+//            long seconds = elapsedSeconds % 60;
+//
+//            String elapsed = String.format("%dmin%02dsec", minutes, seconds);
+//            ssg.printStats(args[0], paths, numPaths, elapsed, fileSize);
         }
     }
 
