@@ -1,0 +1,741 @@
+[
+  {
+    "sequenceId": 0,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 1,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "postFeatureToConfig",
+        "parameters": [
+          "p1",
+          "c1",
+          "f1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putFeatureToConfig",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putFeatureToConfig",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 2,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 3,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 4,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 5,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteFeatureOfProduct",
+        "parameters": [
+          "p1",
+          "f1"
+        ]
+      },
+      {
+        "operationId": "deleteProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 6,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "postFeatureToConfig",
+        "parameters": [
+          "p1",
+          "c1",
+          "f1"
+        ]
+      },
+      {
+        "operationId": "putFeatureToConfig",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putFeatureToConfig",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 7,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postFeatureToConfig",
+        "parameters": [
+          "p1",
+          "c1",
+          "f1"
+        ]
+      },
+      {
+        "operationId": "putFeatureToConfig",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putFeatureToConfig",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 8,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postFeatureToConfig",
+        "parameters": [
+          "p1",
+          "c1",
+          "f1"
+        ]
+      },
+      {
+        "operationId": "putFeatureToConfig",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteFeatureFromConfig",
+        "parameters": [
+          "p1",
+          "c1",
+          "f1"
+        ]
+      }
+    ]
+  },
+  {
+    "sequenceId": 9,
+    "sequence": [
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "deleteFeatureOfProduct",
+        "parameters": [
+          "p1",
+          "f1"
+        ]
+      },
+      {
+        "operationId": "deleteProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "postConfiguration",
+        "parameters": [
+          "p1",
+          "c1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putProduct",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      },
+      {
+        "operationId": "putConfiguration",
+        "parameters": [
+          "p1"
+        ]
+      }
+    ]
+  }
+]

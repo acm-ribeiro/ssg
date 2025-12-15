@@ -1,0 +1,43 @@
+digraph DiskGraph {
+    node [shape=box,style=rounded]
+    edge [colorscheme="paired12"]
+    nodesep=0.35;
+    subgraph cluster_graph {
+    color="white";
+    -8082898507526698 [label="/\\ products = <<>>/\\ f = FALSE",style = filled]
+    -8082898507526698 -> -2395786139227994356 [label="postProduct(p1)",color="2",fontcolor="2"];
+    -2395786139227994356 [label="/\\ products = (p1 :> [features |-> {f1}, configurations |-> <<>>])/\\ f = FALSE",tooltip="/\\ products = (p1 :> [features |-> {f1}, configurations |-> <<>>])/\\ f = FALSE"];
+    -2395786139227994356 -> -8082898507526698 [label="deleteProduct(p1)",color="3",fontcolor="3"];
+    -2395786139227994356 -> 6112222021010577629 [label="postConfiguration(p1,c1)",color="4",fontcolor="4"];
+    6112222021010577629 [label="/\\ products = (p1 :> [features |-> {f1}, configurations |-> (c1 :> {})])/\\ f = TRUE",tooltip="/\\ products = (p1 :> [features |-> {f1}, configurations |-> (c1 :> {})])/\\ f = TRUE"];
+    -2395786139227994356 -> 5521140434446711921 [label="deleteFeatureOfProduct(p1,f1)",color="5",fontcolor="5"];
+    5521140434446711921 [label="/\\ products = (p1 :> [features |-> {}, configurations |-> <<>>])/\\ f = FALSE",tooltip="/\\ products = (p1 :> [features |-> {}, configurations |-> <<>>])/\\ f = FALSE"];
+    6112222021010577629 -> -8082898507526698 [label="deleteProduct(p1)",color="3",fontcolor="3"];
+    6112222021010577629 -> -2395786139227994356 [label="deleteConfiguration(p1,c1)",color="6",fontcolor="6"];
+    6112222021010577629 -> -8194733230792559265 [label="postFeatureToConfig(p1,c1,f1)",color="7",fontcolor="7"];
+    -8194733230792559265 [label="/\\ products = (p1 :> [features |-> {f1}, configurations |-> (c1 :> {f1})])/\\ f = TRUE",tooltip="/\\ products = (p1 :> [features |-> {f1}, configurations |-> (c1 :> {f1})])/\\ f = TRUE"];
+    6112222021010577629 -> 2543767490229662321 [label="deleteFeatureOfProduct(p1,f1)",color="5",fontcolor="5"];
+    2543767490229662321 [label="/\\ products = (p1 :> [features |-> {}, configurations |-> (c1 :> {})])/\\ f = FALSE",tooltip="/\\ products = (p1 :> [features |-> {}, configurations |-> (c1 :> {})])/\\ f = FALSE"];
+    5521140434446711921 -> -8082898507526698 [label="deleteProduct(p1)",color="3",fontcolor="3"];
+    5521140434446711921 -> 2543767490229662321 [label="postConfiguration(p1,c1)",color="4",fontcolor="4"];
+    -8194733230792559265 -> -8082898507526698 [label="deleteProduct(p1)",color="3",fontcolor="3"];
+    -8194733230792559265 -> -2395786139227994356 [label="deleteConfiguration(p1,c1)",color="6",fontcolor="6"];
+    -8194733230792559265 -> 6112222021010577629 [label="deleteFeatureFromConfig(p1,c1,f1)",color="8",fontcolor="8"];
+    -8194733230792559265 -> 2543767490229662321 [label="deleteFeatureOfProduct(p1,f1)",color="5",fontcolor="5"];
+    2543767490229662321 -> -8082898507526698 [label="deleteProduct(p1)",color="3",fontcolor="3"];
+    2543767490229662321 -> 5521140434446711921 [label="deleteConfiguration(p1,c1)",color="6",fontcolor="6"];
+    {rank = same; -8082898507526698;}
+    {rank = same; -2395786139227994356;}
+    {rank = same; 6112222021010577629;5521140434446711921;}
+    {rank = same; 2543767490229662321;-8194733230792559265;}
+    }
+    subgraph cluster_legend {graph[style=bold];label = "Next State Actions" style="solid"
+    node [ labeljust="l",colorscheme="paired12",style=filled,shape=record ]
+    deleteFeatureOfProduct [label="deleteFeatureOfProduct",fillcolor=5]
+    postConfiguration [label="postConfiguration",fillcolor=4]
+    postFeatureToConfig [label="postFeatureToConfig",fillcolor=7]
+    deleteConfiguration [label="deleteConfiguration",fillcolor=6]
+    deleteFeatureFromConfig [label="deleteFeatureFromConfig",fillcolor=8]
+    postProduct [label="postProduct",fillcolor=2]
+    deleteProduct [label="deleteProduct",fillcolor=3]
+    }}

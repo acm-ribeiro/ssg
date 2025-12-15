@@ -276,14 +276,16 @@ public class StateSpaceGraph {
             }
 
             assert !path.isEmpty();
-            last = path.pollLast();
+            // Create a copy to avoid modifying the original
+            Deque<Integer> pathCopy = new ArrayDeque<>(path);
+            last = pathCopy.pollLast();
 
             for (Deque<Integer> fromLast : from[last]) {
                 if (selectedPaths.size() == numPaths) {
                     break;
                 }
 
-                Deque<Integer> completePath = new ArrayDeque<>(path);
+                Deque<Integer> completePath = new ArrayDeque<>(pathCopy);
                 completePath.addAll(fromLast);
 
                 if (increasesTransitionCoverage(completePath)) {
@@ -379,7 +381,8 @@ public class StateSpaceGraph {
      */
     private void markPathNodesFound(Deque<Integer> path) {
         for (Integer stateIdx : path) {
-            states[stateIdx].markFound();
+            if (stateIdx != finalState)
+                states[stateIdx].markFound();
         }
     }
 
@@ -434,10 +437,12 @@ public class StateSpaceGraph {
     public Edge[] getPathEdges(Deque<Integer> path) {
         Edge[] edges = new Edge[path.size() - 2]; // removing initial and final states
 
-        path.pollLast();
+        // Create a copy to avoid modifying the input
+        Deque<Integer> pathCopy = new ArrayDeque<>(path);
+        pathCopy.pollLast();  // Remove final state
 
         int i = 0;
-        Iterator<Integer> it = path.iterator();
+        Iterator<Integer> it = pathCopy.iterator();
 
         int src, dst = -1;
         while (it.hasNext()) {
@@ -722,9 +727,7 @@ public class StateSpaceGraph {
      * @param wanted number of paths asked by the user.
      * @param elapsedTime total time elapsed since the start of the program, in minutes.
      */
-    public void printStats(String fileName, List<List<Edge>> paths, int wanted,
-        String elapsedTime,
-        String fileSize) {
+    public void printStats(String fileName, List<List<Edge>> paths, int wanted, String elapsedTime, String fileSize) {
         System.out.println(STATS);
         System.out.printf("dot file name        :   %s\n", fileName);
         System.out.printf("nodes               :   %d\n", getNumNodes());
